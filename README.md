@@ -1,5 +1,3 @@
-Here's the improved `README.md` file, incorporating the new content while maintaining the existing structure and information:
-
 # Calculator
 
 Simple Windows Forms calculator app written in C# targeting .NET Framework 4.7.2.
@@ -23,7 +21,7 @@ This small app provides a basic calculator UI with digit and operator buttons, a
 
 ## Usage
 
-- Click digit buttons (`0`–`9`) to enter numbers.
+- Click digit buttons (`0`â€“`9`) to enter numbers.
 - Click operator buttons (`+`, `-`, `*`, `/`) to build expressions.
 - Press `=` to evaluate the current expression.
 - Press `C` to clear the entire expression.
