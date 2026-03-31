@@ -12,97 +12,50 @@ namespace Calculator
 {
     public partial class CalculatorGUI : Form
     {
+        private string currentCalculation = "";
         public CalculatorGUI()
         {
             InitializeComponent();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void buttonClick(object sender, EventArgs e)
         {
+            currentCalculation += (sender as Button).Text;
+            txtOutput.Text = currentCalculation;
+        }   
 
+        private void buttonEqualsClick(object sender, EventArgs e)
+        {
+            try
+            {
+                var result = new DataTable().Compute(currentCalculation, null);
+                txtOutput.Text = result.ToString();
+                currentCalculation = result.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in calculation: " + ex.Message);
+                currentCalculation = "";
+                txtOutput.Text = "";
+            }
         }
 
-        private void button10_Click(object sender, EventArgs e)
+        private void buttonClearClick(object sender, EventArgs e)
         {
-
+            currentCalculation = "";
+            txtOutput.Text = "";
         }
 
-        private void button12_Click(object sender, EventArgs e)
+        private void buttonClearEntryClick(object sender, EventArgs e)
         {
-
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-
+            if(currentCalculation.Length > 0)
+            {
+                currentCalculation = currentCalculation.Remove(currentCalculation.Length - 1, 1);
+            }
+            txtOutput.Text = currentCalculation;
         }
 
         private void CalculatorGUI_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button11_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button12_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button15_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button14_Click(object sender, EventArgs e)
         {
 
         }
